@@ -32,3 +32,4 @@ void printArray(int* arr, int size) {
     std::cout << '\n';
 
 }
+//Really confuse about what should we do with this function, so I will leave it here.
