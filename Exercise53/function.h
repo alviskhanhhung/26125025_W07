@@ -2,6 +2,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
+#include <ctime>
 template <typename T>
 class DynamicArray {
     private:
@@ -10,7 +12,7 @@ class DynamicArray {
         int capacity;
         void reallocate() {
             capacity *= 2;
-            newData = new T[capacity];
+            T* newData = new T[capacity];
             for (int i = 0; i < size; i++) {
                 newData[i] = data[i];
             }
@@ -40,6 +42,12 @@ class DynamicArray {
             }
             data[size++] = value;
         }
+        void deleteID(int id) {
+            for (int i = id; i < size - 1; i++) {
+                data[i] = data[i + 1];
+            }
+            size--;
+        }
 
 };
 struct Date {
@@ -61,6 +69,24 @@ struct Course {
     int maxStudent;
     int minStudent;
 };
-bool nameDissecting(const std::string& fullName, std::string& firstName, std::string& lastName);
+bool nameDissecting(const std::string& fullName, std::string& firstName);
 bool readDataFromFile(std::ifstream& fin, Course& course);
-bool writeDataToFile(std::ofstream& fout, const Course& course);
+bool writeDataToFile(std::ofstream& fout, Course& course); 
+bool addStudentToCourse(Course& course, Student& student);
+bool removeStudentFromCourse(Course& course, int studentID);
+void sameMonthAsCurrent(Course& course);
+void sameDateAsCurrent(Course& course);
+void isEighteen(Course& course);
+/*
+void findStudentFromClass(DynamicArray<Course> courses, int studentId);
+For the function to check which students are from class K19, I am really 
+confuse about the "class" thing here, how do we check it? 
+So I will not do that function for now.
+*/
+bool findStudentById(Course& course, int studentId, std::ofstream& fout);
+//What kind of "result" are we trying to achieve here? full name? first name? gpa? all of them?
+bool findStudentByName(Course& course, std::string fullName, std::ofstream& fout);
+void sortById(Course& course);
+void sortByFirstName(Course& course);
+void sortByGPA(Course& course);
+void sortByDoB(Course& course);

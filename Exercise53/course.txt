@@ -1,0 +1,5 @@
+CSC10001|Introduction to programming|open|50|10
+
+26125025|Khanh-Hung Lam|3.5|1/11/2000
+26125026|Minh-Duc Tran|3.8|1/2/2000
+26125075|Quynh-Thi Nguyen-Ngoc|3.7|20/3/2000
