@@ -121,6 +121,13 @@ void isEighteen(Course& course) {
         }
     }
 }
+void findStudentFromClassK19(Course course) {
+    for (int i = 0; i < course.students.getSize(); i++) {
+        if (course.students[i].id / 1000000 == 19) {
+            std::cout << course.students[i].name << " is from class K19\n";
+        }
+    }
+}
 bool findStudentById(Course& course, int studentId, std::ofstream& fout) {
     for (int i = 0; i < course.students.getSize(); i++) {
         if (course.students[i].id == studentId) {
