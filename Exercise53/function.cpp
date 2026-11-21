@@ -14,7 +14,7 @@ bool readDataFromFile(std::ifstream& fin, Course& course) {
     if (!fin) {
         return false;
     }
-    getline(fin, course.id, '|');
+    if (!getline(fin, course.id, '|')) return false;
     getline(fin, course.name, '|');
     getline(fin, course.status, '|');
     std::string placeHolder;
@@ -92,9 +92,11 @@ void sameDateAsCurrent(Course& course) {
     std::time_t now = std::time(nullptr);
     std::tm* local_time = std::localtime(&now);
     int current_day = local_time->tm_mday;
+    int current_month = local_time->tm_mon + 1;
     std::cout << "Current day: " << current_day << '\n';
+    std::cout << "Current month: " << current_month << '\n';
     for (int i = 0; i < course.students.getSize(); i++) {
-        if (course.students[i].DoB.day == current_day) {
+        if (course.students[i].DoB.day == current_day && course.students[i].DoB.month == current_month) {
            std::cout << course.students[i].name << ' ';
         }
     }
@@ -121,10 +123,10 @@ void isEighteen(Course& course) {
         }
     }
 }
-void findStudentFromClassK19(Course course) {
+void findStudentFromClassK19(Course& course, std::ofstream& fout) {
     for (int i = 0; i < course.students.getSize(); i++) {
         if (course.students[i].id / 1000000 == 19) {
-            std::cout << course.students[i].name << " is from class K19\n";
+            fout << course.students[i].name << " is from class K19\n";
         }
     }
 }
@@ -139,8 +141,19 @@ bool findStudentById(Course& course, int studentId, std::ofstream& fout) {
     return false;
 }
 bool findStudentByName(Course& course, std::string name, std::ofstream& fout) {
+    for (char c: name) {
+        if (std::isalpha(c)) {
+            c = std::tolower(c);
+        }
+    }
     for (int i = 0; i < course.students.getSize(); i++) {
-        if (course.students[i].name.find(name) != std::string::npos) {
+        std::string studentName = course.students[i].name;
+        for (char& c: studentName) {
+            if (std::isalpha(c)) {
+                c = std::tolower(c);
+            }
+        }
+        if (studentName.find(name) != std::string::npos) {
             fout << "Student with name include " << name << " found: " << course.students[i].name << '\n';
             return true;
         }

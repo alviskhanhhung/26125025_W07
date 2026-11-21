@@ -1,1 +1,1 @@
-I write these code and answers on my own. I only use AI to debug and check if my work is flawed.
+I write these code and answers on my own. I only use AI to debug and check if my work is flawed by using custom skills, and write test cases for me in exercise 51, 52, 53.

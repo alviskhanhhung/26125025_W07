@@ -1,5 +1,4 @@
-CSC10001|Introduction to programming|open|50|10
-
-26125025|Khanh-Hung Lam|3.5|1/11/2000
-26125026|Minh-Duc Tran|3.8|1/2/2000
-26125075|Quynh-Thi Nguyen-Ngoc|3.7|20/3/2000
+CSC10001|Intro to Programming|open|30|2                
+19125001|Tuan-Thanh Ho|3.6|15/5/2001                   
+26125025|Khanh-Hung Lam|3.5|1/11/2000                  
+26125026|Minh-Duc Tran|3.8|1/2/2000                   

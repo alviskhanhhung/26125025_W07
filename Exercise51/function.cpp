@@ -59,3 +59,16 @@ bool insertValueToKthPosition(int& n, int *&pArr, int pos, int val) {
     n++;
     return true;
 }
+void reverseArray(int n, int* pArr) {
+    if (n <= 1 || pArr == nullptr) {
+        return;
+    }
+    int left = 0, right = n - 1;
+    while (left < right) {
+        int temp = *(pArr + left);
+        *(pArr + left) = *(pArr + right);
+        *(pArr + right) = temp;
+        left++;
+        right--;
+    }
+}

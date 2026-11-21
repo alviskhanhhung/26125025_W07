@@ -20,6 +20,9 @@ int* doubleSizeArray(int* arr, int& size) {
     for (int i = 0; i < size; i++) {
         newArr[i] = arr[i];
     }
+    for (int i = size; i < newSize; i++) {
+        newArr[i] = 0;
+    }
     delete[] arr;
     arr = newArr;
     size = newSize;

@@ -82,7 +82,7 @@ void findStudentFromClass(DynamicArray<Course> courses, int studentId);
 For the function to check which students are from class K19, I am really 
 confuse about the "class" thing here, how do we check it? 
 */
-void findStudentFromClassK19(Course course, int studentId);
+void findStudentFromClassK19(Course& course, std::ofstream& fout);
 bool findStudentById(Course& course, int studentId, std::ofstream& fout);
 //What kind of "result" are we trying to achieve here? full name? first name? gpa? all of them?
 bool findStudentByName(Course& course, std::string fullName, std::ofstream& fout);
